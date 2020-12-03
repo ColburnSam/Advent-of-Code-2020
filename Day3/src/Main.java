@@ -10,6 +10,6 @@ public class Main {
         Hillside tobogganing = new Hillside(sc);
 
         System.out.println("Part 1:");
-        System.out.println(tobogganing.getTreesHit(3,1) + " trees hit");
+        System.out.println("Right 3, Down 1 : " + tobogganing.getTreesHit(3,1) + " trees hit");
     }
 }
