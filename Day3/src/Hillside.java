@@ -3,13 +3,13 @@ import java.util.Scanner;
 
 public class Hillside {
 
-    private ArrayList<String> trees;
+    private ArrayList<String> treeRows;
     private final char TREE = '#';
 
     public Hillside(Scanner sc) {
-        trees = new ArrayList<String>();
+        treeRows = new ArrayList<String>();
         while (sc.hasNext()) {
-            this.trees.add(sc.nextLine());
+            this.treeRows.add(sc.nextLine());
         }
     }
 
@@ -17,7 +17,7 @@ public class Hillside {
     // returns the number of trees hit following that path
     public int getTreesHit(int right, int down) {
         int treesHit = 0;
-        for (int i = 0; i * down < trees.size(); i++) {
+        for (int i = 0; i * down < treeRows.size(); i++) {
             if (isTree(i * right, i * down)) {
                 treesHit++;
             } else {
@@ -28,7 +28,7 @@ public class Hillside {
 
     // Given the x and y value of a coordinate, returns whether or not there is a tree at that point
     public boolean isTree(int x, int y) {
-        String row = trees.get(y);
+        String row = treeRows.get(y);
         return row.charAt(x % row.length()) == TREE;
     }
 
