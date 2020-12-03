@@ -13,7 +13,7 @@ public class Hillside {
         }
     }
 
-    // Given the slope (how many down and how many to the right we progress at a time) of decent,
+    // Given the slope (how many down and how many to the right we progress at a time) of descent,
     // returns the number of trees hit following that path
     public int getTreesHit(int right, int down) {
         int treesHit = 0;
