@@ -17,7 +17,7 @@ public class Hillside {
     // returns the number of trees hit following that path
     public int getTreesHit(int right, int down) {
         int treesHit = 0;
-        for (int i = 0; i < trees.size(); i++) {
+        for (int i = 0; i * down < trees.size(); i++) {
             if (isTree(i * right, i * down)) {
                 treesHit++;
             } else {
