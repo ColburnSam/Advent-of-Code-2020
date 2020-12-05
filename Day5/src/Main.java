@@ -7,31 +7,28 @@ import java.util.Set;
 public class Main {
 
     public static int getID(String seat) {
-        seat = seat.replaceAll("[BR]", "1").replaceAll("[FL]", "0");
-        int row = Integer.parseInt(seat.substring(0,7), 2);
-        int col = Integer.parseInt(seat.substring(7), 2);
-        return row * 8 + col;
+        return Integer.parseInt(seat.replaceAll("[BR]", "1").replaceAll("[FL]", "0"), 2);
     }
 
-    public static int findSeat(int max, Set seatNumbers) {
-        for (int i = max; i > 0; i--) {
-            if(!seatNumbers.contains(i))
-                return i;
-        }
-        return -1;
+    public static int findSeat(int n, int a_n, int S_n) {
+        return (n / 2) * ((a_n - n + 1) + a_n) - S_n; // Arithmetic sum - actual sum = missing term
     }
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(new File("input.txt"));
         Set<Integer> seatNumbers = new HashSet<>();
+        int count = 0;
+        int sum = 0;
         int max = 0;
         while (sc.hasNext()) {
             int curr = getID(sc.next().trim());
             seatNumbers.add(curr);
+            count++;
+            sum +=curr;
             if (max < curr)
                 max = curr;
         }
         System.out.println("Part 1: \nThe highest seat number on a boarding pass is " + max);
-        System.out.println("Part 2: \nYour seat number is " + findSeat(max, seatNumbers));
+        System.out.println("Part 2: \nYour seat number is " + findSeat(count + 1, max, sum)); // add you to count
     }
 }
