@@ -29,7 +29,7 @@ public class Main {
         while (sc.hasNext()) {
             String line = sc.nextLine();
             if (line.isEmpty())
-                return new int[] {count1s(groupAnswers[0]), count1s(groupAnswers[1])};
+                return new int[]{count1s(groupAnswers[0]), count1s(groupAnswers[1])};
             int currAnswer = ALL_ANSWERS_NO;
             for (char ch : line.toCharArray()) {
                 currAnswer += Math.pow(2, 'z' - ch);
@@ -37,16 +37,13 @@ public class Main {
             groupAnswers[0] |= currAnswer;
             groupAnswers[1] &= currAnswer;
         }
-        return new int[] {count1s(groupAnswers[0]), count1s(groupAnswers[1])};
+        return new int[]{count1s(groupAnswers[0]), count1s(groupAnswers[1])};
     }
 
     // Returns the number of '1' digits in the binary expression of a given int.
-    public static int count1s(int answers) {
-        int count = 0;
-        while (answers != 0) {
-            count += answers % 2;
-            answers /= 2;
-        }
-        return count;
+    public static int count1s(int n) {
+        if (n == 0)
+            return 0;
+        return (n % 2) + count1s(n / 2);
     }
 }
