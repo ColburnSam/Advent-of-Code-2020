@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -11,6 +9,7 @@ public class Main {
         Scanner user = new Scanner(System.in);
         System.out.println("How many lines is the prefix?");
         ArrayList<Integer> prefix = getPrefix(sc, user.nextInt());
+        Map<Integer, ArrayList<Integer>> getAddends = new HashMap<>();
 
         // Part 1
         boolean found = false;
